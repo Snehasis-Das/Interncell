@@ -1,0 +1,49 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15
+    container_name: interncell_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: interncell
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+    container_name: interncell_redis
+    restart: always
+    ports:
+      - "6379:6379"
+
+  backend:
+    build: .
+    container_name: interncell_backend
+    restart: always
+    depends_on:
+      - db
+      - redis
+    ports:
+      - "8000:8000"
+    environment:
+      ENVIRONMENT: production
+      DEBUG: "False"
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/interncell
+      SECRET_KEY: 982e96ca9be48401f47d5fe26f7869632e853568c76ec966f279e74782f857bd
+      REDIS_URL: redis://redis:6379/0
+      MAX_UPLOAD_SIZE: 5242880
+      MAX_UPLOADS_PER_USER: 10
+      ALLOWED_UPLOAD_TYPES: application/pdf
+      STORAGE_MODE: local
+      GCP_BUCKET_NAME: dummy
+      SENDGRID_API_KEY: dummy
+      EMAIL_FROM: test@example.com
+      ALLOWED_ORIGINS: http://localhost:8000
+
+volumes:
+  postgres_data:

@@ -1,0 +1,75 @@
+# ========================
+# Python
+# ========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# ========================
+# Virtual Environments
+# ========================
+env/
+venv/
+.venv/
+
+# ========================
+# Environment Variables
+# ========================
+.env
+.env.*
+!.env.example
+
+# ========================
+# Database / Local Files
+# ========================
+*.db
+*.sqlite3
+
+# Local upload storage
+uploads/
+local_uploads/
+
+# ========================
+# Logs
+# ========================
+*.log
+logs/
+
+# ========================
+# Alembic cache
+# ========================
+alembic/__pycache__/
+
+# ========================
+# VSCode
+# ========================
+.vscode/
+
+# ========================
+# OS files
+# ========================
+.DS_Store
+Thumbs.db
+
+# ========================
+# Docker
+# ========================
+docker-compose.override.yml
+
+# ========================
+# Testing / Coverage
+# ========================
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ========================
+# Node (if frontend added later)
+# ========================
+node_modules/
