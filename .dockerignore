@@ -1,0 +1,38 @@
+# Git
+.git
+.gitignore
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual env
+env/
+venv/
+.venv/
+
+# Local env files
+.env
+.env.*
+
+# Local uploads
+uploads/
+local_uploads/
+
+# Logs
+*.log
+logs/
+
+# VSCode
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Tests
+.pytest_cache/
+.coverage
+htmlcov/
